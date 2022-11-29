@@ -13,10 +13,9 @@ process consensus {
 
     shell:
     '''
-    F=$`basename !{bam} .lofreq.final.bam`
 
     samtools mpileup -A -d 0 -Q0 !{bam} | 
-        ivar consensus -q 20 -t 0 -m 10 -n N -p "$F"
+        ivar consensus -q 20 -t 0 -m 10 -n N -p !{bamID}
     '''
 
 }
